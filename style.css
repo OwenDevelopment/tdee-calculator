@@ -6,110 +6,247 @@ font-family:Arial, sans-serif;
 }
 
 body{
+
 background:#f4f6f9;
+
 color:#333;
+
 transition:0.3s;
+
 }
 
+/* HEADER */
+
 header{
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-padding:20px;
+
+padding:16px 24px;
+
 background:#111;
+
 color:white;
+
+}
+
+.logo{
+
+font-size:20px;
+
+font-weight:bold;
+
 }
 
 #darkToggle{
-border:none;
+
 background:none;
+
+border:none;
+
 font-size:20px;
-cursor:pointer;
+
 color:white;
+
+cursor:pointer;
+
 }
+
+
+/* HERO */
+
+.hero{
+
+text-align:center;
+
+padding:40px 20px;
+
+}
+
+.hero h1{
+
+font-size:32px;
+
+margin-bottom:10px;
+
+}
+
+/* CONTAINER */
 
 .container{
-display:grid;
-grid-template-columns:1fr;
-gap:20px;
-padding:20px;
-max-width:900px;
+
+width:100%;
+
+max-width:1100px;
+
 margin:auto;
+
+padding:16px;
+
+display:grid;
+
+gap:20px;
+
+grid-template-columns:1fr;
+
 }
+
+/* CARD */
 
 .card{
+
 background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+padding:22px;
+
+border-radius:12px;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+
 }
 
-.card h2{
-margin-bottom:15px;
-}
+/* INPUT */
 
 input,select{
+
 width:100%;
-padding:10px;
+
+padding:12px;
+
 margin:8px 0;
-border-radius:6px;
+
+border-radius:8px;
+
 border:1px solid #ddd;
+
+font-size:15px;
+
 }
 
+/* BUTTON */
+
 button{
+
 width:100%;
-padding:12px;
-background:#28a745;
-color:white;
+
+padding:13px;
+
 border:none;
-border-radius:6px;
+
+background:#28a745;
+
+color:white;
+
+font-size:16px;
+
+border-radius:8px;
+
 cursor:pointer;
-font-weight:bold;
+
 }
 
 button:hover{
+
 background:#218838;
+
 }
+
+/* RESULT */
 
 .result-card p{
+
+margin:10px 0;
+
 font-size:18px;
-margin:8px 0;
+
 }
+
+/* FOOTER */
 
 footer{
+
 text-align:center;
+
 padding:20px;
-color:#666;
+
+color:#777;
+
 }
 
-/* desktop */
 
-@media(min-width:768px){
+/* TABLET */
+
+@media(min-width:700px){
 
 .container{
+
 grid-template-columns:1fr 1fr;
-}
 
 }
 
-/* dark mode */
+}
+
+
+/* DESKTOP */
+
+@media(min-width:1200px){
+
+.container{
+
+max-width:1200px;
+
+gap:30px;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.card{
+
+padding:30px;
+
+}
+
+}
+
+
+/* DARK MODE */
 
 .dark{
+
 background:#121212;
+
 color:white;
+
 }
 
 .dark .card{
+
 background:#1e1e1e;
+
 }
 
 .dark input,
+
 .dark select{
+
 background:#333;
+
 color:white;
+
 border:1px solid #555;
+
 }
 
 .dark button{
+
 background:#ff5722;
+
 }
