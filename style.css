@@ -1,126 +1,84 @@
 *{
-box-sizing:border-box;
 margin:0;
 padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-
-font-family:'Poppins',sans-serif;
-
-background:linear-gradient(135deg,#667eea,#764ba2);
-
-height:100vh;
-
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+min-height:100vh;
 display:flex;
-
-align-items:center;
-
 justify-content:center;
-
-transition:0.4s;
-
+align-items:center;
+transition:all 0.3s ease;
 }
 
 .container{
 
-width:380px;
+width:90%;
+max-width:420px;
 
+background:white;
 padding:30px;
 
-border-radius:20px;
+border-radius:15px;
 
-background:rgba(255,255,255,0.15);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
-backdrop-filter:blur(15px);
+text-align:center;
 
-box-shadow:0 10px 40px rgba(0,0,0,0.3);
-
-color:white;
-
-}
-
-.header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:20px;
-
+transition:all 0.3s ease;
 }
 
 h1{
-
-font-size:22px;
-
+margin-bottom:5px;
 }
 
-#toggleTheme{
-
-background:none;
-
-border:none;
-
-font-size:20px;
-
-cursor:pointer;
-
-color:white;
-
+.subtitle{
+color:gray;
+margin-bottom:20px;
 }
 
-label{
-
-font-size:14px;
-
-margin-top:10px;
-
-display:block;
-
+.form{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
 input,select{
 
-width:100%;
-
 padding:10px;
-
-margin-top:5px;
 
 border-radius:8px;
 
-border:none;
-
-margin-bottom:10px;
+border:1px solid #ccc;
 
 }
 
-.calculate{
-
-width:100%;
+button{
 
 padding:12px;
 
 border:none;
 
-border-radius:10px;
+border-radius:8px;
 
-background:#00e0a4;
+background:#4CAF50;
+
+color:white;
 
 font-weight:bold;
 
 cursor:pointer;
 
-transition:0.3s;
+transition:0.2s;
 
 }
 
-.calculate:hover{
+button:hover{
 
-transform:scale(1.05);
+background:#45a049;
 
 }
 
@@ -128,19 +86,9 @@ transform:scale(1.05);
 
 margin-top:20px;
 
-background:rgba(0,0,0,0.2);
+font-size:18px;
 
-padding:15px;
-
-border-radius:10px;
-
-font-size:14px;
-
-}
-
-canvas{
-
-margin-top:20px;
+font-weight:bold;
 
 }
 
@@ -148,18 +96,37 @@ margin-top:20px;
 
 .dark{
 
-background:#0f172a;
+background:#121212;
 
 }
 
 .dark .container{
 
-background:rgba(30,41,59,0.6);
+background:#1e1e1e;
+
+color:white;
 
 }
 
-.dark #result{
+.dark input,
+.dark select{
 
-background:rgba(0,0,0,0.4);
+background:#2b2b2b;
+
+color:white;
+
+border:1px solid #555;
+
+}
+
+.dark button{
+
+background:#444;
+
+}
+
+.dark button:hover{
+
+background:#666;
 
 }

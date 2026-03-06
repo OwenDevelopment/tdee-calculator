@@ -1,105 +1,55 @@
-let chart;
-
-const toggle=document.getElementById("toggleTheme");
-
-toggle.onclick=()=>{
-
-document.body.classList.toggle("dark");
-
-toggle.textContent=document.body.classList.contains("dark")?"☀":"🌙";
-
-};
-
 function calculate(){
 
-let gender=document.getElementById("gender").value;
+let age = document.getElementById("age").value
+let gender = document.getElementById("gender").value
+let height = document.getElementById("height").value
+let weight = document.getElementById("weight").value
+let activity = document.getElementById("activity").value
 
-let age=parseFloat(document.getElementById("age").value);
+if(!age || !height || !weight){
 
-let weight=parseFloat(document.getElementById("weight").value);
+document.getElementById("result").innerText = "Please fill all fields"
 
-let height=parseFloat(document.getElementById("height").value);
-
-let activity=parseFloat(document.getElementById("activity").value);
-
-if(!age||!weight||!height){
-
-alert("Please fill all fields");
-
-return;
-
+return
 }
 
-let bmr;
+let bmr
 
-if(gender==="male"){
+if(gender=="male"){
 
-bmr=10*weight+6.25*height-5*age+5;
+bmr = 10*weight + 6.25*height - 5*age + 5
 
 }else{
 
-bmr=10*weight+6.25*height-5*age-161;
+bmr = 10*weight + 6.25*height - 5*age -161
 
 }
 
-let tdee=Math.round(bmr*activity);
+let tdee = bmr * activity
 
-let bmi=(weight/((height/100)**2)).toFixed(1);
+document.getElementById("result").innerText =
 
-let cut=tdee-500;
-
-let bulk=tdee+300;
-
-let protein=Math.round((tdee*0.3)/4);
-
-let carbs=Math.round((tdee*0.4)/4);
-
-let fat=Math.round((tdee*0.3)/9);
-
-document.getElementById("result").innerHTML=
-
-`
-<b>TDEE:</b> ${tdee} kcal<br><br>
-
-<b>BMI:</b> ${bmi}<br><br>
-
-<b>Calories</b><br>
-Cut: ${cut}<br>
-Maintain: ${tdee}<br>
-Bulk: ${bulk}<br><br>
-
-<b>Macros</b><br>
-Protein: ${protein}g<br>
-Carbs: ${carbs}g<br>
-Fat: ${fat}g
-`;
-
-drawChart(cut,tdee,bulk);
+"Your TDEE: " + Math.round(tdee) + " calories/day"
 
 }
 
-function drawChart(cut,maintain,bulk){
 
-let ctx=document.getElementById("chart");
+/* DARK MODE */
 
-if(chart) chart.destroy();
+const toggle = document.getElementById("toggleTheme")
 
-chart=new Chart(ctx,{
+toggle.onclick = function(){
 
-type:"doughnut",
+document.body.classList.toggle("dark")
 
-data:{
+if(document.body.classList.contains("dark")){
 
-labels:["Cut","Maintain","Bulk"],
+toggle.innerText="☀ Light Mode"
 
-datasets:[{
+}else{
 
-data:[cut,maintain,bulk]
-
-}]
+toggle.innerText="🌙 Dark Mode"
 
 }
-
-});
 
 }
