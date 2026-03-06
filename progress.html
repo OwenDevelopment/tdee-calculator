@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Progress</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="sidebar">
+
+<h2>OwenFitness</h2>
+
+<ul>
+
+<li onclick="go('dashboard.html')">Dashboard</li>
+<li onclick="go('nutrition.html')">Nutrition</li>
+<li onclick="go('workout.html')">Workout</li>
+<li onclick="go('progress.html')">Progress</li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<h1>Weight Progress</h1>
+
+<input id="weight">
+
+<button onclick="saveWeight()">Save</button>
+
+<canvas id="weightChart"></canvas>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

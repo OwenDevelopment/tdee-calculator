@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>OwenFitness Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="sidebar">
+
+<h2>🏋️ OwenFitness</h2>
+
+<ul>
+
+<li onclick="go('dashboard.html')">Dashboard</li>
+
+<li onclick="go('nutrition.html')">Nutrition</li>
+
+<li onclick="go('workout.html')">Workout</li>
+
+<li onclick="go('progress.html')">Progress</li>
+
+</ul>
+
+<button onclick="logout()">Logout</button>
+
+<button id="toggleTheme">🌙 Dark Mode</button>
+
+</div>
+
+<div class="main">
+
+<h1>Dashboard</h1>
+
+<input id="age" placeholder="Age" type="number">
+
+<input id="height" placeholder="Height (cm)" type="number">
+
+<input id="weight" placeholder="Weight (kg)" type="number">
+
+<select id="gender">
+
+<option value="male">Male</option>
+<option value="female">Female</option>
+
+</select>
+
+<select id="activity">
+
+<option value="1.2">Sedentary</option>
+<option value="1.55">Moderate</option>
+<option value="1.725">Heavy</option>
+
+</select>
+
+<button onclick="calculate()">Calculate</button>
+
+<div class="cards">
+
+<div class="card">
+<h3>TDEE</h3>
+<p id="tdee">-</p>
+</div>
+
+<div class="card">
+<h3>BMI</h3>
+<p id="bmi">-</p>
+</div>
+
+<div class="card">
+<h3>Body Fat</h3>
+<p id="fat">-</p>
+</div>
+
+</div>
+
+<canvas id="macroChart"></canvas>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

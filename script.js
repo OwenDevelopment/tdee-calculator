@@ -1,55 +1,70 @@
-function calculate(){
+function login(){
 
-let age = document.getElementById("age").value
-let gender = document.getElementById("gender").value
-let height = document.getElementById("height").value
-let weight = document.getElementById("weight").value
-let activity = document.getElementById("activity").value
+let user=document.getElementById("username").value
+let pass=document.getElementById("password").value
 
-if(!age || !height || !weight){
+if(user && pass){
 
-document.getElementById("result").innerText = "Please fill all fields"
+localStorage.setItem("user",user)
 
-return
-}
-
-let bmr
-
-if(gender=="male"){
-
-bmr = 10*weight + 6.25*height - 5*age + 5
+window.location="dashboard.html"
 
 }else{
 
-bmr = 10*weight + 6.25*height - 5*age -161
+document.getElementById("loginMsg").innerText="Enter username"
 
 }
 
-let tdee = bmr * activity
+}
 
-document.getElementById("result").innerText =
+function logout(){
 
-"Your TDEE: " + Math.round(tdee) + " calories/day"
+localStorage.removeItem("user")
+
+window.location="index.html"
 
 }
 
+function go(page){
 
-/* DARK MODE */
-
-const toggle = document.getElementById("toggleTheme")
-
-toggle.onclick = function(){
-
-document.body.classList.toggle("dark")
-
-if(document.body.classList.contains("dark")){
-
-toggle.innerText="☀ Light Mode"
-
-}else{
-
-toggle.innerText="🌙 Dark Mode"
+window.location=page
 
 }
+
+/* meal */
+
+function suggestMeal(){
+
+let meals=[
+
+"Chicken rice",
+
+"Salmon potato",
+
+"Egg avocado",
+
+"Greek yogurt",
+
+"Steak brown rice"
+
+]
+
+let meal=meals[Math.floor(Math.random()*meals.length)]
+
+document.getElementById("meal").innerText=meal
+
+}
+
+/* workout */
+
+function calculateWorkout(){
+
+let w=document.getElementById("weight").value
+let t=document.getElementById("workoutType").value
+let m=document.getElementById("duration").value
+
+let c=Math.round(t*w*m/60)
+
+document.getElementById("burned").innerText=c+" kcal burned"
 
 }

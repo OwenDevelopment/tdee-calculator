@@ -1,55 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
 
-<title>OwenFitness - TDEE Calculator</title>
+<head>
+
+<title>OwenFitness</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
-<body>
+<body class="loginPage">
 
-<div class="container">
+<div class="loginBox">
 
 <h1>🏋️ OwenFitness</h1>
-<p class="subtitle">TDEE & Calorie Calculator</p>
 
-<button id="toggleTheme">🌙 Dark Mode</button>
+<input id="username" placeholder="Username">
 
-<div class="form">
+<input id="password" type="password" placeholder="Password">
 
-<label>Age</label>
-<input type="number" id="age">
+<button onclick="login()">Login</button>
 
-<label>Gender</label>
-<select id="gender">
-<option value="male">Male</option>
-<option value="female">Female</option>
-</select>
-
-<label>Height (cm)</label>
-<input type="number" id="height">
-
-<label>Weight (kg)</label>
-<input type="number" id="weight">
-
-<label>Activity Level</label>
-<select id="activity">
-<option value="1.2">Sedentary</option>
-<option value="1.375">Light Exercise</option>
-<option value="1.55">Moderate Exercise</option>
-<option value="1.725">Heavy Exercise</option>
-<option value="1.9">Athlete</option>
-</select>
-
-<button onclick="calculate()">Calculate TDEE</button>
-
-</div>
-
-<div id="result"></div>
+<p id="loginMsg"></p>
 
 </div>
 
