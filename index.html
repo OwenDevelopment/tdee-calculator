@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OwenFitness - TDEE Calculator</title>
+
+<title>OwenFitness</title>
 
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
 
 <header>
 
-<div class="logo">OwenFitness</div>
+<h2>OwenFitness</h2>
 
 <button id="darkToggle">🌙</button>
 
@@ -21,8 +26,8 @@
 
 <section class="hero">
 
-<h1>Smart Calorie Calculator</h1>
-<p>Calculate your daily calories for fitness goals</p>
+<h1>Fitness Calorie Calculator</h1>
+<p>Calculate calories for your fitness goals</p>
 
 </section>
 
@@ -32,11 +37,11 @@
 
 <div class="card">
 
-<h2>Calculator</h2>
+<h3>Your Info</h3>
 
-<input type="number" id="weight" placeholder="Weight (kg)">
-<input type="number" id="height" placeholder="Height (cm)">
-<input type="number" id="age" placeholder="Age">
+<input id="weight" type="number" placeholder="Weight (kg)">
+<input id="height" type="number" placeholder="Height (cm)">
+<input id="age" type="number" placeholder="Age">
 
 <select id="gender">
 
@@ -61,21 +66,20 @@
 </div>
 
 
-<div class="card result-card">
+<div class="card">
 
-<h2>Your Results</h2>
+<h3>Results</h3>
 
 <p id="bmr">BMR: -</p>
-
 <p id="tdee">TDEE: -</p>
 
 <p id="cut">Cut Calories: -</p>
-
-<p id="maintain">Maintain Calories: -</p>
-
-<p id="bulk">Bulk Calories: -</p>
+<p id="maintain">Maintain: -</p>
+<p id="bulk">Bulk: -</p>
 
 <p id="bmi">BMI: -</p>
+
+<canvas id="calorieChart"></canvas>
 
 </div>
 
@@ -88,7 +92,6 @@
 <p>© OwenFitness</p>
 
 </footer>
-
 
 <script src="script.js"></script>
 
