@@ -1,8 +1,12 @@
 let chart;
 
-document.getElementById("toggleTheme").onclick=function(){
+const toggle=document.getElementById("toggleTheme");
+
+toggle.onclick=()=>{
 
 document.body.classList.toggle("dark");
+
+toggle.textContent=document.body.classList.contains("dark")?"☀":"🌙";
 
 };
 
@@ -46,8 +50,6 @@ let cut=tdee-500;
 
 let bulk=tdee+300;
 
-/* macros */
-
 let protein=Math.round((tdee*0.3)/4);
 
 let carbs=Math.round((tdee*0.4)/4);
@@ -57,19 +59,19 @@ let fat=Math.round((tdee*0.3)/9);
 document.getElementById("result").innerHTML=
 
 `
-<b>TDEE:</b> ${tdee} kcal/day <br><br>
+<b>TDEE:</b> ${tdee} kcal<br><br>
 
-<b>BMI:</b> ${bmi} <br><br>
+<b>BMI:</b> ${bmi}<br><br>
 
 <b>Calories</b><br>
-Cut: ${cut} kcal<br>
-Maintain: ${tdee} kcal<br>
-Bulk: ${bulk} kcal<br><br>
+Cut: ${cut}<br>
+Maintain: ${tdee}<br>
+Bulk: ${bulk}<br><br>
 
 <b>Macros</b><br>
-Protein: ${protein} g<br>
-Carbs: ${carbs} g<br>
-Fat: ${fat} g
+Protein: ${protein}g<br>
+Carbs: ${carbs}g<br>
+Fat: ${fat}g
 `;
 
 drawChart(cut,tdee,bulk);
@@ -84,7 +86,7 @@ if(chart) chart.destroy();
 
 chart=new Chart(ctx,{
 
-type:"bar",
+type:"doughnut",
 
 data:{
 
@@ -92,17 +94,9 @@ labels:["Cut","Maintain","Bulk"],
 
 datasets:[{
 
-label:"Calories",
-
 data:[cut,maintain,bulk]
 
 }]
-
-},
-
-options:{
-
-responsive:true
 
 }
 
