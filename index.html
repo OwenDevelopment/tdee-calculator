@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TDEE Calculator</title>
+</head>
+
+<body>
+
+<h1>TDEE Calculator</h1>
+
+<label>Weight (kg)</label><br>
+<input type="number" id="weight"><br><br>
+
+<label>Height (cm)</label><br>
+<input type="number" id="height"><br><br>
+
+<label>Age</label><br>
+<input type="number" id="age"><br><br>
+
+<label>Gender</label><br>
+<select id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select><br><br>
+
+<label>Activity Level</label><br>
+<select id="activity">
+    <option value="1.2">Sedentary (ít vận động)</option>
+    <option value="1.375">Light Exercise (vận động nhẹ)</option>
+    <option value="1.55">Moderate Exercise (vận động trung bình)</option>
+    <option value="1.725">Heavy Exercise (vận động mạnh)</option>
+</select><br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<h2 id="result"></h2>
+<p id="maintain"></p>
+<p id="cut"></p>
+<p id="bulk"></p>
+
+<script src="script.js"></script>
+
+</body>
+</html>
