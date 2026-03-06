@@ -1,29 +1,65 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OwenFitness</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
+<body>
 
-<body class="loginPage">
+<header>
+<h1>OwenFitness</h1>
+<button id="darkToggle">🌙</button>
+</header>
 
-<div class="loginBox">
+<div class="container">
 
-<h1>🏋️ OwenFitness</h1>
+<div class="card">
 
-<input id="username" placeholder="Username">
+<h2>Calorie Calculator</h2>
 
-<input id="password" type="password" placeholder="Password">
+<input type="number" id="weight" placeholder="Weight (kg)">
+<input type="number" id="height" placeholder="Height (cm)">
+<input type="number" id="age" placeholder="Age">
 
-<button onclick="login()">Login</button>
+<select id="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
 
-<p id="loginMsg"></p>
+<select id="activity">
+<option value="1.2">Sedentary</option>
+<option value="1.375">Light Exercise</option>
+<option value="1.55">Moderate Exercise</option>
+<option value="1.725">Heavy Exercise</option>
+<option value="1.9">Athlete</option>
+</select>
+
+<button onclick="calculate()">Calculate</button>
 
 </div>
+
+<div class="card result-card">
+
+<h2>Your Results</h2>
+
+<p id="bmr">BMR: -</p>
+<p id="tdee">TDEE: -</p>
+<p id="cut">Cutting Calories: -</p>
+<p id="maintain">Maintenance: -</p>
+<p id="bulk">Bulking Calories: -</p>
+<p id="bmi">BMI: -</p>
+
+</div>
+
+</div>
+
+<footer>
+<p>© OwenFitness</p>
+</footer>
 
 <script src="script.js"></script>
 

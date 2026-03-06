@@ -1,70 +1,40 @@
-function login(){
+function calculate(){
 
-let user=document.getElementById("username").value
-let pass=document.getElementById("password").value
+let weight = parseFloat(document.getElementById("weight").value);
+let height = parseFloat(document.getElementById("height").value);
+let age = parseFloat(document.getElementById("age").value);
+let gender = document.getElementById("gender").value;
+let activity = parseFloat(document.getElementById("activity").value);
 
-if(user && pass){
+if(!weight || !height || !age){
+alert("Please fill all fields");
+return;
+}
 
-localStorage.setItem("user",user)
+let bmr;
 
-window.location="dashboard.html"
-
+if(gender === "male"){
+bmr = 10*weight + 6.25*height - 5*age + 5;
 }else{
+bmr = 10*weight + 6.25*height - 5*age - 161;
+}
 
-document.getElementById("loginMsg").innerText="Enter username"
+let tdee = Math.round(bmr * activity);
+
+let cut = tdee - 500;
+let bulk = tdee + 300;
+
+let bmi = (weight / ((height/100)*(height/100))).toFixed(1);
+
+document.getElementById("bmr").innerText = "BMR: " + Math.round(bmr) + " kcal";
+document.getElementById("tdee").innerText = "TDEE: " + tdee + " kcal";
+document.getElementById("cut").innerText = "Cutting Calories: " + cut + " kcal";
+document.getElementById("maintain").innerText = "Maintenance: " + tdee + " kcal";
+document.getElementById("bulk").innerText = "Bulking Calories: " + bulk + " kcal";
+document.getElementById("bmi").innerText = "BMI: " + bmi;
 
 }
 
-}
-
-function logout(){
-
-localStorage.removeItem("user")
-
-window.location="index.html"
-
-}
-
-function go(page){
-
-window.location=page
-
-}
-
-/* meal */
-
-function suggestMeal(){
-
-let meals=[
-
-"Chicken rice",
-
-"Salmon potato",
-
-"Egg avocado",
-
-"Greek yogurt",
-
-"Steak brown rice"
-
-]
-
-let meal=meals[Math.floor(Math.random()*meals.length)]
-
-document.getElementById("meal").innerText=meal
-
-}
-
-/* workout */
-
-function calculateWorkout(){
-
-let w=document.getElementById("weight").value
-let t=document.getElementById("workoutType").value
-let m=document.getElementById("duration").value
-
-let c=Math.round(t*w*m/60)
-
-document.getElementById("burned").innerText=c+" kcal burned"
-
-}
+document.getElementById("darkToggle").onclick = function(){
+document.body.classList.toggle("dark");
+};
