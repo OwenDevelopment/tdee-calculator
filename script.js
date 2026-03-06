@@ -1,16 +1,24 @@
+let chart;
+
+document.getElementById("toggleTheme").onclick=function(){
+
+document.body.classList.toggle("dark");
+
+};
+
 function calculate(){
 
-let gender = document.getElementById("gender").value;
+let gender=document.getElementById("gender").value;
 
-let age = parseFloat(document.getElementById("age").value);
+let age=parseFloat(document.getElementById("age").value);
 
-let weight = parseFloat(document.getElementById("weight").value);
+let weight=parseFloat(document.getElementById("weight").value);
 
-let height = parseFloat(document.getElementById("height").value);
+let height=parseFloat(document.getElementById("height").value);
 
-let activity = parseFloat(document.getElementById("activity").value);
+let activity=parseFloat(document.getElementById("activity").value);
 
-if(!age || !weight || !height){
+if(!age||!weight||!height){
 
 alert("Please fill all fields");
 
@@ -22,36 +30,82 @@ let bmr;
 
 if(gender==="male"){
 
-bmr = 10*weight + 6.25*height - 5*age + 5;
+bmr=10*weight+6.25*height-5*age+5;
 
 }else{
 
-bmr = 10*weight + 6.25*height - 5*age - 161;
+bmr=10*weight+6.25*height-5*age-161;
 
 }
 
-let tdee = Math.round(bmr*activity);
+let tdee=Math.round(bmr*activity);
 
-let bmi = weight/((height/100)**2);
+let bmi=(weight/((height/100)**2)).toFixed(1);
 
-bmi = bmi.toFixed(1);
+let cut=tdee-500;
 
-let cut = tdee - 500;
+let bulk=tdee+300;
 
-let bulk = tdee + 300;
+/* macros */
 
-document.getElementById("result").innerHTML =
+let protein=Math.round((tdee*0.3)/4);
+
+let carbs=Math.round((tdee*0.4)/4);
+
+let fat=Math.round((tdee*0.3)/9);
+
+document.getElementById("result").innerHTML=
 
 `
-<b>TDEE:</b> ${tdee} kcal/day<br><br>
+<b>TDEE:</b> ${tdee} kcal/day <br><br>
 
-<b>BMI:</b> ${bmi}<br><br>
+<b>BMI:</b> ${bmi} <br><br>
 
-<b>Cut:</b> ${cut} kcal<br>
+<b>Calories</b><br>
+Cut: ${cut} kcal<br>
+Maintain: ${tdee} kcal<br>
+Bulk: ${bulk} kcal<br><br>
 
-<b>Maintain:</b> ${tdee} kcal<br>
-
-<b>Bulk:</b> ${bulk} kcal
+<b>Macros</b><br>
+Protein: ${protein} g<br>
+Carbs: ${carbs} g<br>
+Fat: ${fat} g
 `;
+
+drawChart(cut,tdee,bulk);
+
+}
+
+function drawChart(cut,maintain,bulk){
+
+let ctx=document.getElementById("chart");
+
+if(chart) chart.destroy();
+
+chart=new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:["Cut","Maintain","Bulk"],
+
+datasets:[{
+
+label:"Calories",
+
+data:[cut,maintain,bulk]
+
+}]
+
+},
+
+options:{
+
+responsive:true
+
+}
+
+});
 
 }

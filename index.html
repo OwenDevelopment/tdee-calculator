@@ -2,12 +2,17 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TDEE Calculator</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -16,6 +21,8 @@
 <div class="container">
 
 <h1>🔥 TDEE Calculator</h1>
+
+<button id="toggleTheme">🌙 Dark Mode</button>
 
 <label>Gender</label>
 <select id="gender">
@@ -43,6 +50,8 @@
 <button onclick="calculate()">Calculate</button>
 
 <div id="result"></div>
+
+<canvas id="chart"></canvas>
 
 </div>
 
